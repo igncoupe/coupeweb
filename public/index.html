@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>coupeweb — Your space on the web</title>
+<link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+<script src="/scram/scramjet.all.js" defer></script><script src="/baremux/index.js" defer></script><script type="module" src="/app.js"></script>
+</head>
+<body>
+<header>
+ <div class="topline"><a class="brand" href="/" aria-label="coupeweb home"><img src="/icon.svg" alt="">coupeweb<span>PERSONAL BROWSER</span></a><span class="badge" id="status" role="status">Starting proxy…</span></div>
+ <div class="toolbar"><nav aria-label="Browser controls"><button id="back" aria-label="Go back" title="Back" disabled>←</button><button id="forward" aria-label="Go forward" title="Forward" disabled>→</button><button id="reload" aria-label="Reload page" title="Reload" disabled>↻</button><button id="home" aria-label="Go home" title="Home">⌂</button></nav>
+ <form id="browse"><span class="globe" aria-hidden="true">◎</span><input id="address" aria-label="Search or enter a website" placeholder="Search or enter a website" autocomplete="off" spellcheck="false"><button id="go" type="submit" disabled>Go <span aria-hidden="true">↗</span></button></form></div>
+ <div id="progress" hidden></div>
+</header>
+<div id="error" role="alert" hidden></div>
+<main id="welcome">
+ <div class="eyebrow"><span></span> YOUR WEB. YOUR SPACE.</div>
+ <h1>browse anything u want cuh</h1>
+ <p class="intro">1 click away from some bs</p>
+ <div class="section-label"><span>YOUR BOOKMARKS</span><span>Good things, close by ↙</span></div>
+ <div class="shortcuts" aria-label="Bookmarks">
+  <button data-url="https://www.youtube.com/"><span class="card-top"><span class="tile youtube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="5" fill="currentColor"/><path d="m10 9 6 3-6 3z" fill="white"/></svg></span><span class="card-arrow">↗</span></span><span>YouTube</span><small>Watch something good</small></button>
+  <button data-url="https://www.tiktok.com/"><span class="card-top"><span class="tile tiktok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v12a4 4 0 1 1-4-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M14 3c0 4 3 5 6 5" fill="none" stroke="currentColor" stroke-width="3"/></svg></span><span class="card-arrow">↗</span></span><span>TikTok</span><small>Find your next favorite</small></button>
+  <button data-url="https://chatgpt.com/"><span class="card-top"><span class="tile chatgpt"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.5 6.7L21 12l-6.5 3.3L12 22l-2.5-6.7L3 12l6.5-3.3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span class="card-arrow">↗</span></span><span>ChatGPT</span><small>Make room for an idea</small></button>
+ </div>
+ <div class="note"><span class="note-icon">↳</span><div><strong>Your own space to browse.</strong><p>Pages load through your proxy server. When running on this computer, websites still see this network’s IP address.</p></div></div>
+ <footer><span>POWERED BY SCRAMJET + WISP</span><span>A little blue. A lot to explore. <span class="spark">✳</span></span></footer>
+</main>
+<section id="viewport" aria-label="Proxied website" hidden></section>
+</body></html>
