@@ -11,7 +11,7 @@ npm install --ignore-scripts
 npm start
 ```
 
-Open **http://localhost:8080** in a modern browser. Keep the server running while browsing. Stop it with Ctrl+C. If port 8080 is occupied, use `PORT=8081 npm start`.
+Open **[http://localhost:8080](https://igncoupe.github.io/coupeweb/)** in a modern browser. Keep the server running while browsing. Stop it with Ctrl+C. If port 8080 is occupied, use `PORT=8081 npm start`.
 
 With pnpm, use `pnpm install --frozen-lockfile --ignore-scripts` to install the versions recorded in the included lockfile.
 
