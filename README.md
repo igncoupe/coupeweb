@@ -15,25 +15,37 @@ Open **http://localhost:8080** in a modern browser. Keep the server running whil
 
 With pnpm, use `pnpm install --frozen-lockfile --ignore-scripts` to install the versions recorded in the included lockfile.
 
-## Run from a GitHub repository
+## Run on GitHub Pages
 
-1. Create a new private GitHub repository named `proxy-browser`.
-2. Add this folder's contents to the repository root, including `.devcontainer`, `.gitignore`, and the lockfile. Do not upload `node_modules`.
-3. Open **Code → Codespaces → Create codespace on main**.
-4. The included configuration installs the dependencies and starts coupeweb. Open port **8080** in the Codespaces **Ports** panel if it does not open automatically.
-5. Keep port visibility **Private**. Keep the Codespace running while browsing; stop it when finished.
+The included workflow builds a static copy of coupeweb and publishes it on every push to `main`.
 
-GitHub Codespaces usage is subject to your account's quotas and billing settings. The repository stores the source; Codespaces runs the server. GitHub Pages by itself cannot run this proxy's relay.
+1. In the repository, open **Settings → Pages** and set **Source** to **GitHub Actions**.
+2. Push to `main` (or run **Actions → Deploy to GitHub Pages → Run workflow**).
+3. Open `https://<user>.github.io/<repository>/`.
+
+GitHub Pages only serves files, so it cannot run the Wisp relay. The Pages build uses the public relay at `wss://wisp.mercurywork.shop/`, run by Mercury Workshop: page traffic passes through their server, and websites see its IP address. To use a different relay, set a repository variable named `WISP_RELAY` (**Settings → Secrets and variables → Actions → Variables**) to its `wss://` address, or change it for one browser under **Relay settings** on the home page.
+
+To build the static site yourself, run `npm run build`; the output is in `dist/`. Set `COUPE_RELAY` to choose the relay.
+
+After the first visit, the app's files are cached by its service worker, so later visits start without downloading them again.
+
+## Run in GitHub Codespaces
+
+1. Open **Code → Codespaces → Create codespace on main**.
+2. The included configuration installs the dependencies and starts coupeweb with its own relay. Open port **8080** in the Codespaces **Ports** panel if it does not open automatically.
+3. Keep port visibility **Private**. Keep the Codespace running while browsing; stop it when finished.
+
+GitHub Codespaces usage is subject to your account's quotas and billing settings.
 
 ## Scope
 
 - The server listens only on this computer by default.
 - Websites see the server's outgoing IP. Running locally does not change your network's public IP.
 - The proxy handles HTTP and HTTPS sites; some sites, logins, video, and anti-bot checks may not work.
-- It requires service workers and cross-origin isolation. Use localhost locally or HTTPS remotely.
+- It requires service workers. Use localhost locally or HTTPS remotely.
 - Cookies and site storage can persist in the browser. This is not an anonymous or private-browsing mode.
 - This project is intended for local use or private Codespaces forwarding. It has no built-in account system; do not expose it as an unauthenticated public service.
-- The relay rejects other browser origins, direct IP destinations, local/private destinations, UDP, and destination ports other than 80 and 443 using Wisp's configuration.
+- The local relay rejects other browser origins, direct IP destinations, local/private destinations, UDP, and destination ports other than 80 and 443 using Wisp's configuration.
 
 ## Checks
 

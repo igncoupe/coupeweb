@@ -6,7 +6,7 @@
   "description": "A personal web proxy with a browser interface, powered by Scramjet.",
   "license": "AGPL-3.0-only",
   "engines": { "node": ">=22" },
-  "scripts": { "start": "node server.js", "test": "node --test test/*.test.js" },
+  "scripts": { "start": "node server.js", "build": "node scripts/build.js", "test": "node --test test/*.test.js" },
   "dependencies": {
     "@fastify/static": "9.0.0",
     "@mercuryworkshop/bare-mux": "2.1.9",
